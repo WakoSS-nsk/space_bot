@@ -7,7 +7,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 
 load_dotenv()
 
-secret_token = os.getenv('TOKEN')
+TG_TOKEN = os.getenv('TOKEN')
 NASA_KEY = os.getenv('NASA_TOKEN')
 URL = f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}&count=1'
 
@@ -62,7 +62,7 @@ def wake_up(update, context):
 
 
 def main():
-    updater = Updater(token=secret_token)
+    updater = Updater(token=TG_TOKEN)
     updater.dispatcher.add_handler(CommandHandler('start', wake_up))
     updater.dispatcher.add_handler(MessageHandler(Filters.text, new_pic))
     updater.start_polling()
