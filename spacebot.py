@@ -19,14 +19,8 @@ def get_new_image():
 
 
 def get_url():
-    try:
-        response = requests.get(URL)
-    except Exception as error:
-        print(error)
-        new_url = 'https://api.thedogapi.com/v1/images/search'
-        response = requests.get(new_url)
+    response = requests.get(URL)
     response = response.json()
-    print(response[0])
     random_pic = response[0].get('hdurl')
     description = response[0].get('explanation')
     list_objects = [random_pic, description]
