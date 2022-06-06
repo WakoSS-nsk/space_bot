@@ -7,7 +7,7 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 
 load_dotenv()
 
-TG_TOKEN = os.getenv('TOKEN')
+TG_TOKEN = os.getenv('TOKEN', '5539332489:AAG1HoWrFLc3JtgX0HNfuPMF-bx1nFc3WN4')
 NASA_KEY = os.getenv('NASA_TOKEN')
 URL = f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}&count=1'
 UPDATER = Updater(TG_TOKEN)
