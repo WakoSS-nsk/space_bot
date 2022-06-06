@@ -7,10 +7,9 @@ from telegram.ext import CommandHandler, Filters, MessageHandler, Updater
 
 load_dotenv()
 
-TG_TOKEN = os.getenv('TOKEN', '5539332489:AAG1HoWrFLc3JtgX0HNfuPMF-bx1nFc3WN4')
-NASA_KEY = os.getenv('NASA_TOKEN', 'tzp2VixbsJuB0eAPfSUOSltPsid9V3tSpZOxbKac')
+TG_TOKEN = os.getenv('TOKEN')
+NASA_KEY = os.getenv('NASA_TOKEN')
 URL = f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}&count=1'
-UPDATER = Updater(TG_TOKEN)
 
 
 def get_new_image():
@@ -55,7 +54,7 @@ def wake_up(update, context):
 
 
 def main():
-    updater = UPDATER
+    updater = Updater(token=TG_TOKEN)
     updater.dispatcher.add_handler(CommandHandler('start', wake_up))
     updater.dispatcher.add_handler(MessageHandler(Filters.text, new_pic))
     updater.start_polling()
