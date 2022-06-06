@@ -14,7 +14,6 @@ URL = f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}&count=1'
 
 def get_new_image():
     response = get_url()
-    print(response[0])
     return response[0]
 
 
@@ -55,7 +54,7 @@ def wake_up(update, context):
 
 
 def main():
-    updater = Updater(token=TG_TOKEN)
+    updater = Updater(TG_TOKEN)
     updater.dispatcher.add_handler(CommandHandler('start', wake_up))
     updater.dispatcher.add_handler(MessageHandler(Filters.text, new_pic))
     updater.start_polling()
