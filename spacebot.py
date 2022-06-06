@@ -29,7 +29,6 @@ def get_url():
 
 def get_description():
     response = get_url()
-    print(response[1])
     return response[1]
 
 
@@ -42,7 +41,7 @@ def new_pic(update, context):
 def wake_up(update, context):
     chat = update.effective_chat
     name = update.message.chat.first_name
-    button = ReplyKeyboardMarkup([['/planet_photo']], resize_keyboard=True)
+    button = ReplyKeyboardMarkup([['/space_photo']], resize_keyboard=True)
     get_url()
 
     context.bot.send_message(
