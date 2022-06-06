@@ -55,7 +55,7 @@ def wake_up(update, context):
 
 
 def main():
-    updater = Updater(token=TG_TOKEN)
+    updater = UPDATER
     updater.dispatcher.add_handler(CommandHandler('start', wake_up))
     updater.dispatcher.add_handler(MessageHandler(Filters.text, new_pic))
     updater.start_polling()
