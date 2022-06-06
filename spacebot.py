@@ -10,7 +10,7 @@ load_dotenv()
 TG_TOKEN = os.getenv('TOKEN')
 NASA_KEY = os.getenv('NASA_TOKEN')
 URL = f'https://api.nasa.gov/planetary/apod?api_key={NASA_KEY}&count=1'
-UPDATER = Updater(token=TG_TOKEN)
+UPDATER = Updater(TG_TOKEN)
 
 
 def get_new_image():
